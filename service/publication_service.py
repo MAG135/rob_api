@@ -7,6 +7,6 @@ def get_publications_after_publication_id(publication_id_bookmark: int):
 
     video_model_view_list = list()
     for p in publications:
-        video_model_view_list.append(VideoModelView(p.publication_id, p.publication_url, p.video.url))
+        video_model_view_list.append(VideoModelView(p.id, p.publication_url))
 
     return video_model_view_list
