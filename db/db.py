@@ -27,6 +27,8 @@ class PublicationEntity(BaseModel):
     view_count = IntegerField()
     share_count = IntegerField()
     hashtags = ArrayField(TextField, index=False)
+    category = IntegerField(null=True)
+    created_at = BigIntegerField(null=True)
     video = ForeignKeyField(VideoEntity, backref="publication", unique=True)
 
     class Meta:
