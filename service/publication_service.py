@@ -7,7 +7,7 @@ def get_publications_after_publication_id(publication_id_bookmark: int):
 
     video_model_view_list = list()
     for p in publications:
-        view = VideoModelView(p.id, p.publication_url, p.category, p.created_at)
+        view = VideoModelView(p.id, p.publication_url, p.category, p.author_unique_id, p.created_at)
         if p.publication_id != "-1":
             video_model_view_list.append(view)
 
@@ -19,7 +19,7 @@ def get_publications_by_category_after_publication_id(publication_id_bookmark: i
 
     video_model_view_list = list()
     for p in publications:
-        view = VideoModelView(p.id, p.publication_url, p.category, p.created_at)
+        view = VideoModelView(p.id, p.publication_url, p.category, p.author_unique_id, p.created_at)
         if p.publication_id != "-1":
             video_model_view_list.append(view)
 
