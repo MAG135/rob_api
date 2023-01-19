@@ -44,7 +44,8 @@ def add_authors(request: AddAuthorsRequestList):
         for r in request.authors:
             authors.append(AuthorEntity(author_id=r.author,
                                         last_publication_id="",
-                                        category=r.category))
+                                        category=r.category,
+                                        is_working=False))
         author_repository.add_authors(authors)
         return True
     except Exception:
