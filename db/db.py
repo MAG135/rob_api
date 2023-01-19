@@ -35,6 +35,17 @@ class PublicationEntity(BaseModel):
         db_table = "publication"
 
 
+class AuthorEntity(BaseModel):
+    author_id = TextField()
+    last_publication_id = TextField()
+    category = IntegerField()
+    is_working = BooleanField()
+
+    class Meta:
+        db_table = "author"
+
+
 def init():
     VideoEntity.create_table()
     PublicationEntity.create_table()
+    AuthorEntity.create_table()

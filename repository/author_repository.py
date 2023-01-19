@@ -23,7 +23,8 @@ def add_author(author: str, category: int):
         author = AuthorEntity(
             author_id=author,
             last_publication_id="",
-            category=category)
+            category=category,
+            is_working=False)
         author.save()
 
 
