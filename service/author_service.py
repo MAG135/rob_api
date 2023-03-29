@@ -22,7 +22,7 @@ def delete_authors(request: DeleteAuthorsRequestList):
     for r in request.authors:
         authors.append(r.author)
     print(authors)
-    author_repository.delete_authors(authors)
+    author_repository.set_is_deleted(authors)
     return True
 
 

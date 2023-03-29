@@ -2,11 +2,12 @@ from db.db import AuthorEntity, tiktok_db
 
 
 # Удаление автора
-def delete_author(author: str):
-    with tiktok_db:
-        tiktok_db.connect(reuse_if_open=True)
+def set_is_deleted(author: str):
+    with db.tiktok_db:
+        db.tiktok_db.connect(reuse_if_open=True)
         author = AuthorEntity.get(AuthorEntity.author_id == author)
-        author.delete_instance()
+        author.is_deleted = True
+        author.save()
 
 
 # Удаление авторов
