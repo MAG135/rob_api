@@ -3,18 +3,18 @@ from db.db import AuthorEntity, tiktok_db
 
 # Удаление автора
 def set_is_deleted(author: str):
-    with db.tiktok_db:
-        db.tiktok_db.connect(reuse_if_open=True)
+    with tiktok_db:
+        tiktok_db.connect(reuse_if_open=True)
         author = AuthorEntity.get(AuthorEntity.author_id == author)
         author.is_deleted = True
         author.save()
 
 
-# Удаление авторов
-def delete_authors(authors: list[str]):
-    with tiktok_db:
-        tiktok_db.connect(reuse_if_open=True)
-        AuthorEntity.delete().where(AuthorEntity.author_id.in_(authors)).execute()
+# # Удаление авторов
+# def delete_authors(authors: list[str]):
+#     with tiktok_db:
+#         tiktok_db.connect(reuse_if_open=True)
+#         AuthorEntity.delete().where(AuthorEntity.author_id.in_(authors)).execute()
 
 
 # Добавление автора

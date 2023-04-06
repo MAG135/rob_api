@@ -9,7 +9,7 @@ from requests.delete_author_request import DeleteAuthorsRequestList
 # Удаление автора
 def delete_author(author: str):
     try:
-        author_repository.delete_author(author)
+        author_repository.set_is_deleted(author)
         return True
     except Exception:
         print(traceback.format_exc())
@@ -18,11 +18,8 @@ def delete_author(author: str):
 
 # Удаление авторов
 def delete_authors(request: DeleteAuthorsRequestList):
-    authors = list()
     for r in request.authors:
-        authors.append(r.author)
-    print(authors)
-    author_repository.set_is_deleted(authors)
+        author_repository.set_is_deleted(r.author)
     return True
 
 
